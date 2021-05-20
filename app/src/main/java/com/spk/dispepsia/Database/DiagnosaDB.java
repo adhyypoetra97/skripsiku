@@ -42,7 +42,7 @@ public class DiagnosaDB extends SQLiteOpenHelper {
     }
 
     public Cursor oneData(long kode){
-        Cursor cur = db.rawQuery("SELECT * FROM gejala WHERE _id " + "=" + kode, null);
+        Cursor cur = db.rawQuery("SELECT * FROM diagnosa WHERE _id " + "=" + kode, null);
         return cur;
     }
 
@@ -63,6 +63,15 @@ public class DiagnosaDB extends SQLiteOpenHelper {
 
     public Cursor kode(){
         Cursor cur = db.rawQuery("SELECT * FROM " + table_name + " ORDER BY " + row_kdDiagnosa + " DESC", null);
+        return cur;
+    }
+
+    public void hapusdata(){
+        db.delete(table_name, null, null);
+    }
+
+    public Cursor dataNIK(String nik){
+        Cursor cur = db.rawQuery("SELECT * FROM " + table_name + " WHERE " + row_nik_pasien + "= ?", new String[] {nik});
         return cur;
     }
 }

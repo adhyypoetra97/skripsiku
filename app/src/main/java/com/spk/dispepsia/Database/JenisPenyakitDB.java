@@ -92,4 +92,9 @@ public class JenisPenyakitDB extends SQLiteOpenHelper {
         cursor.close();
         return listData;
     }
+
+    public Cursor hasil(String a){
+        Cursor cur = db.rawQuery("SELECT * FROM " + table_name + " WHERE " + row_kdPenyakit + "= ?", new String[] {a});
+        return cur;
+    }
 }

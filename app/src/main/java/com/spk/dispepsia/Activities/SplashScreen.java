@@ -3,10 +3,12 @@ package com.spk.dispepsia.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,6 +25,13 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_splash_screen);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setStatusBarColor(getResources().getColor(R.color.green));
+        }
 
         progressBar = findViewById(R.id.progress);
         persentase = findViewById(R.id.persentase);
@@ -52,7 +61,7 @@ public class SplashScreen extends AppCompatActivity {
                         progressBar.setProgress(w); // Memasukan Value pada ProgressBar
                         // Mengirim pesan dari handler, untuk diproses didalam thread
                         handler.sendMessage(handler.obtainMessage());
-                        Thread.sleep(25); // Waktu Pending 100ms/0.1 detik
+                        Thread.sleep(17); //
                     }
                 }catch(InterruptedException ex){
                     ex.printStackTrace();

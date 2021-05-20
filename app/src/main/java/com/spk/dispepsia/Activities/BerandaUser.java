@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.spk.dispepsia.R;
@@ -22,8 +25,14 @@ public class BerandaUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda_user);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setStatusBarColor(getResources().getColor(R.color.hijau));
+        }
+
         sharedPreferences = getSharedPreferences("user_details", MODE_PRIVATE);
-        String nik = sharedPreferences.getString("nik",null);
         String nama = getIntent().getStringExtra("user");
         nama_user = findViewById(R.id.txt_nama_user);
         nama_user.setText(nama);
@@ -63,6 +72,14 @@ public class BerandaUser extends AppCompatActivity {
 
     public void diagnosa(View view){
         Intent intent = new Intent(BerandaUser.this, Diagnosa.class);
+        intent.putExtra("nik", getIntent().getStringExtra("nik"));
+        intent.putExtra("nama", getIntent().getStringExtra("user"));
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+    }
+
+    public void hasil(View view){
+        Intent intent = new Intent(BerandaUser.this, HasilDiagnosa.class);
         intent.putExtra("nik", getIntent().getStringExtra("nik"));
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,R.anim.stay);

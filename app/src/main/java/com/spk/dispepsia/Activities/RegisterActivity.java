@@ -144,6 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
                             values.put("nama", nm_pasien);
                             values.put("tgl_lahir", tgl_lahir);
                             values.put("telp", noHP);
+                            values.put(BiodataDB.row_alamat, alamat_pasien);
                             values.put("email", email);
                             biodataDB.insertBiodata(values);
 

@@ -9,31 +9,182 @@
     tools:showIn="@layout/activity_diagnosa"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/list_diagnosa"
-        android:drawSelectorOnTop="true"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="7dp"
-        android:choiceMode="multipleChoice">
-    </ListView>
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="7dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/editHasil"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:ems="10"
-        android:clickable="false"
-        android:gravity="start|top"
-        android:textSize="17sp"
-        android:inputType="textMultiLine"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:id="@+id/editHasilDiagnosa"/>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/txNormalisasi"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:clickable="false"
-        android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/hitung"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perhitungan TOPSIS"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:padding="10dp"
+                        android:id="@+id/editNormalisasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10"
+                        android:visibility="gone"
+                        android:clickable="false"
+                        android:gravity="start|top"
+                        android:textSize="19sp"
+                        android:inputType="textMultiLine"/>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/editTerbobot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:clickable="false"
+                android:gravity="start|top"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/editAplus"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:clickable="false"
+                android:gravity="start|top"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/editAminus"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:clickable="false"
+                android:gravity="start|top"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/editDplus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:visibility="gone"
+                android:clickable="false"
+                android:gravity="start|top"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/editDminus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:clickable="false"
+                android:visibility="gone"
+                android:gravity="start|top"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/editPreferensi"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:clickable="false"
+                android:gravity="start|top"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/teksBantuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:textAlignment="center"
+            android:text="Silahkan pilih gejala-gejala dibawah berdasarkan gejala yang anda rasakan"/>
+
+        <ListView
+            android:id="@+id/list_diagnosa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:choiceMode="multipleChoice"
+            android:drawSelectorOnTop="true">
+
+        </ListView>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -81,4 +81,8 @@ public class BerandaAdmin extends AppCompatActivity {
     public void aturan(View view){
         startActivity(new Intent(getApplicationContext(), Aturan.class));
     }
+
+    public void laporan(View view){
+        startActivity(new Intent(getApplicationContext(), LaporanDiagnosa.class));
+    }
 }

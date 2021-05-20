@@ -95,7 +95,7 @@ public class ProfileUser extends AppCompatActivity {
         if (cur != null && cur.moveToFirst()) {
             nama.setText(cur.getString(1));
             tgllahir.setText(cur.getString(2));
-            alamat.setText(cur.getString(cur.getColumnIndex("alamat")));
+            alamat.setText(cur.getString(3));
             hp.setText(cur.getString(4));
         }
 
